@@ -5,8 +5,10 @@ Tries to find dat links and shares them automatically
 Usage (assuming you want to share from the dats folder):
 
 ```
-node index.js -f ./dats
+node bin.js -f ./dats
 ```
+
+Can also take a -i option to only share links from people you follow.
 
 Gives:
 
