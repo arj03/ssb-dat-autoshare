@@ -6,12 +6,11 @@ exports.manifest = {}
 
 exports.init = function (ssb, config) {
   var conf = config.datShare || {}
-  var onlyPeopleIFollow = conf.onlyPeopleIFollow || false
-  var shareFolder = conf.folder || '/tmp'
+  var shareFolder = conf.shareFolder || '/tmp'
 
-  console.log("Sharing dat links from: ", shareFolder)
+  console.log("Sharing dat links from:", shareFolder)
   
-  if (onlyPeopleIFollow)
+  if (conf.onlyPeopleIFollow)
     lib.getFromPeopleIFollow(ssb, shareFolder)
   else
     lib.getAll(ssb, shareFolder)
