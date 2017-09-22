@@ -30,7 +30,7 @@ var self = module.exports = {
     console.log("Looking for dat links in all feeds")
 
     pull(
-      sbot.createLogStream({ reverse: true, limit: 10000 }),
+      sbot.createLogStream({ live: true, reverse: true, limit: 10000 }),
       pull.filter((msg) => {
         return !msg.value ||
 	  msg.value.content.type == 'post' &&
@@ -48,7 +48,7 @@ var self = module.exports = {
     console.log("users:", following)
     console.log("channels:", channelSubscriptions)
     pull(
-      sbot.createLogStream({ reverse: true, limit: 10000 }),
+      sbot.createLogStream({ live: true, reverse: true, limit: 10000 }),
       pull.filter((msg) => {
         return !msg.value ||
 	  ((msg.value.author in following ||
