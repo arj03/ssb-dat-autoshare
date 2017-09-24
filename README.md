@@ -25,7 +25,7 @@ Sbot plugin usage:
 ```sh
 mkdir -p ~/.ssb/node_modules
 cd ~/.ssb/node_modules
-git clone ssb-dat-share ssb://%HGaRHwvAX9LW8lUAaz8NypXZRCVqOsHTKhj//pkiEiQ=.sha256 && cd ssb-dat-share
+git clone ssb://%HGaRHwvAX9LW8lUAaz8NypXZRCVqOsHTKhj//pkiEiQ=.sha256 ssb-dat-share && cd ssb-dat-share
 npm install
 sbot plugins.enable ssb-viewer
 # restart sbot
