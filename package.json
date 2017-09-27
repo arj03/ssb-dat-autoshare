@@ -1,6 +1,6 @@
 {
   "name": "ssb-dat-autoshare",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A cli for auto sharing dat links scuttlebot feeds",
   "main": "export-data.js",
   "scripts": {

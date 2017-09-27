@@ -41,9 +41,3 @@ For configuration, you can change options in ~/.ssb/config, add:
     "onlyPeopleIFollow": true
   }
 ```
-
-TODO:
-
-  https://github.com/datproject/dat-node
-  
-  - var stats = dat.trackStats(), peers
