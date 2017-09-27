@@ -3,7 +3,7 @@ var uri = require('urijs')
 var pull = require('pull-stream')
 
 var self = module.exports = {
-  extractLinksAndSeed: function(err, logs, shareFolder) {
+  extractLinksAndSeed: function(err, logs, shareFolder, useTemp) {
     if (err) throw err;
 
     console.log("Found " + logs.length)
@@ -15,7 +15,8 @@ var self = module.exports = {
         console.log("Saving to:", shareFolder + "/" + datLink.substring(6))
 
         Dat(shareFolder + "/" + datLink.substring(6), {
-	  key: datLink
+	  key: datLink,
+          temp: useTemp
         }, function (err, dat) {
 	  if (err) throw err
 	  
@@ -26,7 +27,7 @@ var self = module.exports = {
     })
   },
 
-  getAll: function(sbot, shareFolder) {
+  getAll: function(sbot, shareFolder, useTemp) {
     console.log("Looking for dat links in all feeds")
 
     pull(
@@ -38,13 +39,14 @@ var self = module.exports = {
 	  msg.value.content.text.indexOf("dat://") != -1
       }),
       pull.collect((err, logs) => self.extractLinksAndSeed(err, logs,
-                                                           shareFolder))
+                                                           shareFolder,
+                                                           useTemp))
     )
   },
 
   messagesFromPeopleIFollow: function(sbot, following,
                                       channelSubscriptions,
-                                      shareFolder) {
+                                      shareFolder, useTemp) {
     console.log("users:", following)
     console.log("channels:", channelSubscriptions)
     pull(
@@ -58,11 +60,12 @@ var self = module.exports = {
 	   msg.value.content.text.indexOf("dat://") != -1)
       }),
       pull.collect((err, logs) => self.extractLinksAndSeed(err, logs,
-                                                           shareFolder))
+                                                           shareFolder,
+                                                           useTemp))
     )
   },
 
-  getFromPeopleIFollow: function(sbot, shareFolder) {
+  getFromPeopleIFollow: function(sbot, shareFolder, useTemp) {
     var following = []
     var channelSubscriptions = []
 
@@ -97,7 +100,7 @@ var self = module.exports = {
 
           self.messagesFromPeopleIFollow(sbot, following,
                                          channelSubscriptions,
-                                         shareFolder)
+                                         shareFolder, useTemp)
         })
       )
     })

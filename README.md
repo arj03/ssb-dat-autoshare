@@ -8,7 +8,9 @@ Command line usage (assuming you want to share from the dats folder):
 node bin.js -f ./dats
 ```
 
-Can also take a -i option to only share links from people you follow.
+Can also take a -i option to only share links from people you
+follow. And can be told to share using memory (-t) instead of from
+filesystem.
 
 This should give you something like this:
 
@@ -45,5 +47,3 @@ TODO:
   https://github.com/datproject/dat-node
   
   - var stats = dat.trackStats(), peers
-  - temp: false, // Use random-access-memory as the storage.
-  

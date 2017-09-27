@@ -11,7 +11,7 @@ exports.init = function (ssb, config) {
   console.log("Sharing dat links from:", shareFolder)
   
   if (conf.onlyPeopleIFollow)
-    lib.getFromPeopleIFollow(ssb, shareFolder)
+    lib.getFromPeopleIFollow(ssb, shareFolder, conf.temp)
   else
-    lib.getAll(ssb, shareFolder)
+    lib.getAll(ssb, shareFolder, conf.temp)
 }
