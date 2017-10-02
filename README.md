@@ -29,7 +29,7 @@ mkdir -p ~/.ssb/node_modules
 cd ~/.ssb/node_modules
 git clone ssb://%HGaRHwvAX9LW8lUAaz8NypXZRCVqOsHTKhj//pkiEiQ=.sha256 ssb-dat-share && cd ssb-dat-share
 npm install
-sbot plugins.enable ssb-viewer
+sbot plugins.enable ssb-dat-share
 # restart sbot
 ```
 
