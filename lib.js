@@ -12,6 +12,12 @@ var self = module.exports = {
       uri.withinString(msg.value.content.text, (datLink) => {
         if (!datLink.startsWith("dat://")) return
 
+        // issue #360 in uri.js
+        var bracket = datLink.indexOf("]")
+
+        if (bracket != -1)
+          datLink = datLink.substring(0, bracket)
+
         if (!useTemp)
           console.log("Saving to:", shareFolder + "/" + datLink.substring(6))
 
