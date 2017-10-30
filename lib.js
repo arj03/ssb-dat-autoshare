@@ -25,7 +25,10 @@ var self = module.exports = {
 	  key: datLink,
           temp: useTemp
         }, function (err, dat) {
-	  if (err) throw err
+	  if (err) {
+            console.log(err);
+            return
+          }
 	  
 	  console.log("sharing:", datLink)
 	  dat.joinNetwork()
