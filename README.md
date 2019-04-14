@@ -1,4 +1,4 @@
-# ssb-dat-share
+# ssb-dat-autoshare
 
 Find dat links in posts and share them automatically
 
@@ -27,9 +27,8 @@ Sbot plugin usage:
 ```sh
 mkdir -p ~/.ssb/node_modules
 cd ~/.ssb/node_modules
-git clone ssb://%HGaRHwvAX9LW8lUAaz8NypXZRCVqOsHTKhj//pkiEiQ=.sha256 ssb-dat-share && cd ssb-dat-share
-npm install
-sbot plugins.enable ssb-dat-share
+npm install ssb-dat-autoshare
+sbot plugins.enable ssb-dat-autoshare
 # restart sbot
 ```
 
