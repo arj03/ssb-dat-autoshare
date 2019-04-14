@@ -1,6 +1,6 @@
 var lib = require('./lib');
 
-exports.name = 'dat-share'
+exports.name = 'dat-autoshare'
 exports.version = require('./package.json').version
 exports.manifest = {}
 
