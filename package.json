@@ -1,7 +1,7 @@
 {
   "name": "ssb-dat-autoshare",
-  "version": "0.0.5",
-  "description": "A cli for auto sharing dat links scuttlebot feeds",
+  "version": "1.0.0",
+  "description": "A cli and ssb-server plugin for auto sharing dat links in scuttlebot feeds",
   "main": "export-data.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,7 +17,7 @@
     "cli"
   ],
   "author": "Anders Rune Jensen <arj03@protonmail.ch>",
-  "license": "MIT",
+  "license": "Beerware",
   "bugs": {
     "url": "https://github.com/arj03/ssb-dat-share/issues"
   },
