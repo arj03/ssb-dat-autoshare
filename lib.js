@@ -1,6 +1,7 @@
 var Dat = require('dat-node')
 var uri = require('urijs')
 var pull = require('pull-stream')
+var path = require('path')
 
 var self = module.exports = {
   extractLinksAndSeed: function(err, logs, shareFolder, useTemp) {
@@ -18,10 +19,14 @@ var self = module.exports = {
         if (bracket != -1)
           datLink = datLink.substring(0, bracket)
 
-        if (!useTemp)
-          console.log("Saving to:", shareFolder + "/" + datLink.substring(6))
+	var sharePath = shareFolder + "/" + datLink.substring(6)
 
-        Dat(shareFolder + "/" + datLink.substring(6), {
+	sharePath = path.dirname(sharePath)
+
+        if (!useTemp)
+          console.log("Saving to:", sharePath)
+
+        Dat(sharePath, {
 	  key: datLink,
           temp: useTemp
         }, function (err, dat) {
