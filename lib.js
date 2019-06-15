@@ -19,9 +19,15 @@ var self = module.exports = {
         if (bracket != -1)
           datLink = datLink.substring(0, bracket)
 
+        var hash = datLink.indexOf("#")
+
+        if (hash != -1)
+          datLink = datLink.substring(0, hash)
+
 	var sharePath = shareFolder + "/" + datLink.substring(6)
 
-	sharePath = path.dirname(sharePath)
+	if (!sharePath.endsWith("/"))
+	  sharePath = path.dirname(sharePath)
 
         if (!useTemp)
           console.log("Saving to:", sharePath)
