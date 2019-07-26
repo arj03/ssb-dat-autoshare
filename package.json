@@ -23,10 +23,11 @@
   },
   "homepage": "https://github.com/arj03/ssb-dat-share",
   "dependencies": {
+    "commander": "^2.20.0",
+    "dat-node": "^3.5.15",
+    "mkdirp": "^0.5.1",
     "pull-stream": "^3.6.9",
     "ssb-client": "^4.7.2",
-    "dat-node": "^3.5.15",
-    "commander": "^2.20.0",
     "urijs": "^1.19.1"
   }
 }

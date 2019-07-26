@@ -2,6 +2,7 @@ var Dat = require('dat-node')
 var uri = require('urijs')
 var pull = require('pull-stream')
 var path = require('path')
+var mkdirp = require('mkdirp')
 
 var self = module.exports = {
   extractLinksAndSeed: function(err, logs, shareFolder, useTemp) {
@@ -32,18 +33,23 @@ var self = module.exports = {
         if (!useTemp)
           console.log("Saving to:", sharePath)
 
-        Dat(sharePath, {
-	  key: datLink,
-          temp: useTemp
-        }, function (err, dat) {
-	  if (err) {
-            console.log(err);
-            return
-          }
+	mkdirp(sharePath, (err) => {
+	  if (err) console.log("Error creating path:", err)
+	  else {
+            Dat(sharePath, {
+	      key: datLink,
+              temp: useTemp
+            }, function (err, dat) {
+	      if (err) {
+		console.log(err);
+		return
+              }
 	  
-	  console.log("sharing:", datLink)
-	  dat.joinNetwork()
-        })
+	      console.log("sharing:", datLink)
+	      dat.joinNetwork()
+            })
+	  }
+	})
       })
     })
   },
